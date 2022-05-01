@@ -4,11 +4,24 @@ public class FlagCircle {
     int xPos;
     int yPos;
     int radius;
+    int flagWidth;
+    int flagHeight;
 
-    public FlagCircle(int xPos, int yPos, int radius) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public FlagCircle(int flagWidth, int flagHeight, int radius) {
+        this.flagWidth = flagWidth;
+        this.flagHeight = flagHeight;
+        // position Circle in middle of Flag.
+        this.xPos = flagWidth/2;
+        this.yPos = flagHeight/2;
         this.radius = radius;
+    }
+    public FlagCircle(int flagWidth, int flagHeight) {
+        this.flagWidth = flagWidth;
+        this.flagHeight = flagHeight;
+        // position Circle in middle of Flag.
+        this.xPos = flagWidth/2;
+        this.yPos = flagHeight/2;
+        this.radius = flagHeight;
     }
 
     public int getxPos() {
@@ -23,6 +36,14 @@ public class FlagCircle {
         return radius;
     }
 
+    public int getFlagWidth() {
+        return flagWidth;
+    }
+
+    public int getFlagHeight() {
+        return flagHeight;
+    }
+
     public void setxPos(int xPos) {
         this.xPos = xPos;
     }
@@ -33,6 +54,20 @@ public class FlagCircle {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    public void setFlagHeight(int flagHeight) {
+        this.flagHeight = flagHeight;
+    }
+
+    public void setFlagWidth(int flagWidth) {
+        this.flagWidth = flagWidth;
+    }
+
+    public void setGreenland() {
+        setxPos(getFlagWidth()*7/18);
+        setyPos(getFlagHeight()/2);
+        setRadius(getFlagHeight()*4/12);
     }
 
     public boolean isInsideCircle(int x, int y) {

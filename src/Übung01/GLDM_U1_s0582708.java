@@ -72,8 +72,9 @@ public class GLDM_U1_s0582708 implements PlugIn {
     private void generateGreenlandFlagImage(int width, int height, int[] pixels) {
         //  int checkEquality1 = 0;
         //  int checkEquality2 = 0;
-        //  Kreis innerhalb der Flagge definieren, abhängig von Anzahl der Pixel
-        FlagCircle voltobal = new FlagCircle(width*7/18, height/2, height*4/12);
+        //  Kreis innerhalb der Flagge einfügen.
+        FlagCircle voltobal = new FlagCircle(width, height);
+        voltobal.setGreenland();
         // Schleife ueber die y-Werte
         for (int y=0; y<height; y++) {
             // Schleife ueber die x-Werte
