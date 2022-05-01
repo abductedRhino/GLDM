@@ -109,8 +109,8 @@ public class GLDM_U1_s0582708 implements PlugIn {
     }
 
     private void generateBhutanFlagImage(int width, int height, int[] pixels) {
-        int checkEquality1 = 0;
-        int checkEquality2 = 0;
+        //int checkEquality1 = 0;
+        //int checkEquality2 = 0;
         double incrementY = ((double)width)/((double)height);
         double countY = 0;
         // Schleife ueber die y-Werte
@@ -132,20 +132,6 @@ public class GLDM_U1_s0582708 implements PlugIn {
                     r = 255;
                     g = 103;
                     b = 31;
-                    checkEquality1++;
-                } else {
-                    //yellow
-                    r = 255;
-                    g = 205;
-                    b = 0;
-                    checkEquality2++;
-                }
-/*
-                if ((height - y)*width > x*height) {
-                    //orange
-                    r = 255;
-                    g = 103;
-                    b = 31;
                     //checkEquality1++;
                 } else {
                     //yellow
@@ -154,16 +140,12 @@ public class GLDM_U1_s0582708 implements PlugIn {
                     b = 0;
                     //checkEquality2++;
                 }
-
- */
                 // Werte zurueckschreiben
                 pixels[pos] = 0xFF000000 | (r << 16) | (g << 8) | b;
             }
-        //System.out.println(countY);
-        //System.out.println((int)Math.round(countY));
-        countY += incrementY;
+            countY += incrementY;
         }
-        System.out.println("1: " + checkEquality1 + ", 2: " + checkEquality2);
+        //System.out.println("1: " + checkEquality1 + ", 2: " + checkEquality2);
     }
 
     private void generateBlackRedBlackBlueImage(int width, int height, int[] pixels) {
