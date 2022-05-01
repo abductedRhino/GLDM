@@ -65,6 +65,7 @@ public class FlagCircle {
     }
 
     public void setGreenland() {
+        //Greenland's flag: https://de.wikipedia.org/wiki/Flagge_Gr%C3%B6nlands#cite_note-33
         setxPos(getFlagWidth()*7/18);
         setyPos(getFlagHeight()/2);
         setRadius(getFlagHeight()*4/12);
