@@ -72,8 +72,9 @@ public class GLDM_U1_s0582708 implements PlugIn {
     private void generateGreenlandFlagImage(int width, int height, int[] pixels) {
         //  int checkEquality1 = 0;
         //  int checkEquality2 = 0;
-        //  Kreis innerhalb der Flagge einfügen.
+        //  Kreis innerhalb der Flagge festlegen, dabei wird erstmal nur die größe der Flagge definiert.
         FlagCircle voltobal = new FlagCircle(width, height);
+        // Radius und Position des Kreises festlegen.
         voltobal.setGreenland();
         // Schleife ueber die y-Werte
         for (int y=0; y<height; y++) {
@@ -84,7 +85,7 @@ public class GLDM_U1_s0582708 implements PlugIn {
                 int r = 255;
                 int g = 255;
                 int b = 255;
-                //  Ist innerhalb des Kreises und innerhalb der oberen hälfte?
+                //  Ist der Pixel innerhalb des Kreises und innerhalb der oberen Hälfte der Flagge?
                 if (voltobal.isInsideCircle(x, y) && y <= height / 2) {
                     //red
                     r = 239;
@@ -92,7 +93,7 @@ public class GLDM_U1_s0582708 implements PlugIn {
                     b = 64;
                     //  checkEquality1++;
                 }
-                // Ist außerhalb des Kreises und innerhalb der unteren hälfte?
+                // Ist der Pixel außerhalb des Kreises und innerhalb der unteren Hälfte der Flagge?
                 if (!voltobal.isInsideCircle(x, y) && y > height / 2) {
                     //red
                     r = 239;

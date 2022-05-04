@@ -65,7 +65,16 @@ public class FlagCircle {
     }
 
     public void setGreenland() {
-        //Greenland's flag: https://de.wikipedia.org/wiki/Flagge_Gr%C3%B6nlands#cite_note-33
+        /*
+        "[Grönlands] gesamte Flagge ist 12 mal 18 Einheiten groß;
+        die Scheibe hat einen Durchmesser von 8 Einheiten,
+        ihr Mittelpunkt hat einen Abstand von 7 Einheiten vom Mast und
+        ist senkrecht zentriert."
+        https://de.wikipedia.org/wiki/Flagge_Gr%C3%B6nlands#Beschreibung_und_Bedeutung 04.05.22 19:15h
+
+        Der Kreismittelpunkt muss 7 von 18 Einheiten vom linken Rand entfernt sein, width*7/18.
+        Der Durchmesser muss 8 von 12 Einheiten sein, height*4/12
+        */
         setxPos(getFlagWidth()*7/18);
         setyPos(getFlagHeight()/2);
         setRadius(getFlagHeight()*4/12);
