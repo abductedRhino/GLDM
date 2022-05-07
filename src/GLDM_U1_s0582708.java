@@ -1,5 +1,3 @@
-package Übung01;
-
 import ij.ImageJ;
 import ij.ImagePlus;
 import ij.gui.GenericDialog;
@@ -32,8 +30,8 @@ public class GLDM_U1_s0582708 implements PlugIn {
 
     public void run(String arg) {
 
-        int width  = 566/3;  // Breite
-        int height = 400/3;  // Hoehe
+        int width  = 566;  // Breite
+        int height = 400;  // Hoehe
 
         // RGB-Bild erzeugen
         ImagePlus imagePlus = NewImage.createRGBImage("GLDM_U1", width, height, 1, NewImage.FILL_BLACK);
@@ -70,12 +68,11 @@ public class GLDM_U1_s0582708 implements PlugIn {
     }
 
     private void generateGreenlandFlagImage(int width, int height, int[] pixels) {
+        int xPos = width*7/18;
+        int yPos = height/2;
+        int radius = height*4/12;
         //  int checkEquality1 = 0;
         //  int checkEquality2 = 0;
-        //  Kreis innerhalb der Flagge festlegen, dabei wird erstmal nur die größe der Flagge definiert.
-        FlagCircle voltobal = new FlagCircle(width, height);
-        // Radius und Position des Kreises festlegen.
-        voltobal.setGreenland();
         // Schleife ueber die y-Werte
         for (int y=0; y<height; y++) {
             // Schleife ueber die x-Werte
@@ -86,7 +83,7 @@ public class GLDM_U1_s0582708 implements PlugIn {
                 int g = 255;
                 int b = 255;
                 //  Ist der Pixel innerhalb des Kreises und innerhalb der oberen Hälfte der Flagge?
-                if (voltobal.isInsideCircle(x, y) && y <= height / 2) {
+                if ((x-xPos)*(x-xPos)+(y-yPos)*(y-yPos) < (radius*radius) && y <= height / 2) {
                     //red
                     r = 239;
                     g = 51;
@@ -94,7 +91,7 @@ public class GLDM_U1_s0582708 implements PlugIn {
                     //  checkEquality1++;
                 }
                 // Ist der Pixel außerhalb des Kreises und innerhalb der unteren Hälfte der Flagge?
-                if (!voltobal.isInsideCircle(x, y) && y > height / 2) {
+                if ((x-xPos)*(x-xPos)+(y-yPos)*(y-yPos) >= (radius*radius) && y > height / 2) {
                     //red
                     r = 239;
                     g = 51;
